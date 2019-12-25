@@ -1,0 +1,9 @@
+---
+# installing tomcat9 on redhat
+- hosts: webservers
+  become: yes
+  tasks:
+    - yum:
+        name: tomcat9
+        state: present
+        update_cache: yes
