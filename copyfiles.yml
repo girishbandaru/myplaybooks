@@ -7,3 +7,4 @@
     copy:
       src: /etc/ansible/hosts
       dest: /home/ansible/myhosts
+      
