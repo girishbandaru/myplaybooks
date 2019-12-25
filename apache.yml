@@ -9,9 +9,16 @@
         state: present
         update_cache: yes
       when: ansible_os_family == "Debian"
+      notify: restart tomcat
     - name: installing apache on redhat
       yum:
         name: httpd
         state: present
         update_cache: yes
       when: ansible_os_family == "RedHat"
+      notify: restart tomcat
+  handlers:
+    - name: restart tomcat
+      service: 
+        name: tomcat9
+        state: restarted
