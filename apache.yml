@@ -1,0 +1,17 @@
+---
+# installing apache 
+- hosts: all
+  become: yes
+  tasks:
+    - name: installing apache on ubuntu servers
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+      when: ansible_os_family == "Debian"
+    - name: installing apache on redhat
+      yum:
+        name: httpd
+        state: present
+        update_cache: yes
+      when: ansible_os_family == "RedHat"
