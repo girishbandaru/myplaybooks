@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - yum:
-        name: tomcat7
+        name: tomcat
         state: present
         update_cache: yes
       when: ansible_os_family == "RedHat"
