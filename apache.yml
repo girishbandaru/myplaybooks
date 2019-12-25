@@ -23,6 +23,7 @@
         name: apache2
         state: restarted
       when: ansible_os_family == "Debian"
+    - name: restart apache
       service:
         name: httpd
         state: restarted
