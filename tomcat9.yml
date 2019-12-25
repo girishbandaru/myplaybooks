@@ -3,14 +3,14 @@
 - hosts: all
   become: yes
   tasks:
-    - name: uninstalling tomcat on Ubuntu
+    - name: installing tomcat on Ubuntu
       apt:
         name: "{{ packagename }}"
-        state: absent
+        state: present
         update_cache: yes
       when: ansible_os_family == "Debian"
-    - name: uninstalling tomcat on ubuntu
+    - name: installing tomcat on ubuntu
       yum:
         name: "{{ packagename }}"
-        state: absent
+        state: present
       when: ansible_os_family == "redHat"  
