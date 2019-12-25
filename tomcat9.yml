@@ -13,4 +13,5 @@
       yum:
         name: "{{ packagename }}"
         state: present
+        update_cache: yes
       when: ansible_os_family == "redHat"  
