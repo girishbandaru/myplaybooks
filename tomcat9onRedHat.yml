@@ -1,9 +1,10 @@
 ---
 # installing tomcat9 on redhat
-- hosts: webservers
+- hosts: all
   become: yes
   tasks:
     - yum:
         name: tomcat9
         state: present
         update_cache: yes
+      when: ansible_os_family == "RedHat"
