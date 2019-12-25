@@ -1,0 +1,9 @@
+---
+# this is to copy files from source to destination 
+- hosts: all
+  become: yes
+  tasks:
+  - name: copying my inventory files
+    copy:
+      src: /etc/ansible/hosts
+      dest: /home/ansible/myhosts
