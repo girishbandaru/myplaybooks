@@ -1,5 +1,5 @@
 ---
-- hotst: all
+- hosts: all
   become: yes
   tasks:
   - name: Install Utilities on Ubunti
