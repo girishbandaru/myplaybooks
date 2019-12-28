@@ -2,14 +2,16 @@
 - hotst: all
   become: yes
   tasks:
-  - name: Install Utilities
+  - name: Install Utilities on Ubunti
     apt: 
       name: "{{ item }}"
       state: absent
-    with_itmes: ["git","nano","tree","wget"]
     when: ansible_os_family == "Debian"
+    with_itmes: ["git","nano","tree","wget"]
+  - name: Installing Utilities on RedHat Machines
     yum:
       name : "{{ item }}"
       state: absent
-      with_items: ["git","nano","tree","wget"]
     when: ansible_os_family == "RedHat"
+    with_items: ["git","nano","tree","wget"]
+    
