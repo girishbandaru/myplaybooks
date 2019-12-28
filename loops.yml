@@ -5,13 +5,26 @@
   - name: Install Utilities on Ubunti
     apt: 
       name: "{{ item }}"
-      state: absent
+      state: present
+      update_cache: yes
     when: ansible_os_family == "Debian"
     with_items: ["git","nano","tree","wget"]
+    notify:
+      - refresh
   - name: Installing Utilities on RedHat Machines
     yum:
       name : "{{ item }}"
-      state: absent
+      state: present
+      update_cache: yes
     when: ansible_os_family == "RedHat"
     with_items: ["git","nano","tree","wget"]
+    notify:
+      - refresh
+  handlers:
+    - name: refresh
+      service:
+        name: "{{ item }}"
+        state: restarted
+
+
     
