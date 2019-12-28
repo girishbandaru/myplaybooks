@@ -4,12 +4,12 @@
   tasks:
   - name: Install Utilities
     apt: 
-      name: {{ item }}
+      name: "{{ item }}"
       state: absent
     with_itmes: ["git","nano","tree","wget"]
     when: ansible_os_family == "Debian"
     yum:
-      name : {{ item }}
+      name : "{{ item }}"
       state: absent
     with_items: ["git","nano","tree","wget"]
     when: ansible_os_family == "RedHat"
