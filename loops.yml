@@ -1,0 +1,15 @@
+---
+- hotst: all
+  become: yes
+  tasks:
+  - name: Install Utilities
+    apt: 
+      name: {{ item }}
+      state: present
+    with_itmes: ["git","nano","tree","wget"]
+    when: ansible_os_family == "Debian"
+    yum:
+      name : {{ item }}
+      state: present
+    with_items: ["git","nano","tree","wget"]
+    when: ansible_os_family == "RedHat"
