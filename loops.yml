@@ -7,7 +7,7 @@
       name: "{{ item }}"
       state: absent
     when: ansible_os_family == "Debian"
-    with_itmes: ["git","nano","tree","wget"]
+    with_items: ["git","nano","tree","wget"]
   - name: Installing Utilities on RedHat Machines
     yum:
       name : "{{ item }}"
