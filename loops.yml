@@ -23,7 +23,6 @@
   handlers:
     - name: refresh
       service:
-        name: "{{ item }}"
         state: restarted
 
 
