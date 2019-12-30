@@ -1,0 +1,9 @@
+---
+# First template playbook 
+- hosts: all
+  become: yes
+  tasks:
+  - name: creating first template
+    template:
+      src: firsttemplate.j2
+      dest: /home/ansible/firsttemplate
