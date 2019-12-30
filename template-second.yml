@@ -1,0 +1,9 @@
+---
+# Template with dyamic contect to display username and host name
+- hosts: all
+  become: yes
+  tasks:
+  - name: Displaying Dynamic Content
+    template:
+      src: secondtemplate.j2
+      dest: /home/ansible/secondtemplate
