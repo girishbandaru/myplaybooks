@@ -1,0 +1,21 @@
+---
+# this portion is to execute a basic linux command
+- hosts: all
+  become: yes
+  tasks:
+    - name: basic linux command to display hostname
+      command: hostname -f
+      register: cmd_content
+# this protion prints the variable content of the above command 
+    - name: printing the content of the given command
+      debug: 
+        msg: "{{ cmd_content }}"
+# this below portion will display the output of the command
+    - name: Printing Command Result
+      debug: 
+        msg: "{{ cmd_content.stdout }}"    
+      when: cmd_content.stderr == " "
+    - name: Prnting error if any
+      debug:
+        msg: " {{ cmd_contect.stderr }}"
+      when: cmd_content.stderr != " "
