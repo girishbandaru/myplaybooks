@@ -1,2 +1,11 @@
 ---
 # defaults file for common
+- hosts: all
+  beome: yes
+  tasks:
+  - name: update packages on ubuntu
+    command: apg-get update
+    when: ansible_os_family == "Debian"
+  - name: update packages on RedHat
+    command: yum update
+    when: ansible_os_family == "RedHat"

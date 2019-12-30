@@ -1,2 +1,12 @@
 ---
 # tasks file for apache
+- name: installing apache2 on Ubuntu
+  apt:
+    name: apache2
+    status: present
+  when: ansible_os_family == "Debian"
+- name: Installing apache2 on RedHat
+  yum:
+    name: httpd
+    status: present
+  when: ansible_os_family == "RedHat"
