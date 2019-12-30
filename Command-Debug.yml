@@ -14,8 +14,11 @@
     - name: Printing Command Result
       debug: 
         msg: "{{ cmd_content.stdout }}"    
-      when: cmd_content.stderr == " "
+      when: cmd_content.stderr == ""
     - name: Prnting error if any
       debug:
-        msg: " {{ cmd_content.stderr }}"
-      when: cmd_content.stderr != " "
+        msg: "{{ cmd_content.stderr }}"
+      when: cmd_content.stderr != ""
+    - name: printing system UUID ans Host Inventory
+      debug:
+        msg: System "{{ inventory_hostname }}" has uuid "{{ ansible_product_uuid }}"
