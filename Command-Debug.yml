@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - name: basic linux command to display hostname
-      command: hostname -f
+      command: hostname
       register: cmd_content
 # this protion prints the variable content of the above command 
     - name: printing the content of the given command
