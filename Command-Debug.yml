@@ -17,5 +17,5 @@
       when: cmd_content.stderr == " "
     - name: Prnting error if any
       debug:
-        msg: " {{ cmd_contect.stderr }}"
+        msg: " {{ cmd_content.stderr }}"
       when: cmd_content.stderr != " "
