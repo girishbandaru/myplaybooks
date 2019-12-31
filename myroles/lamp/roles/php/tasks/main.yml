@@ -13,7 +13,7 @@
       state: present
       update_cache: yes 
     when: ansible_os_family == "RedHat"
-    with_items: ["git","mcrypt","nginx"]
+    with_items: ["git","mcrypt","nginx","epel-release","yum-utils"]
     
   - name: installing php on Ubuntu
     apt:
@@ -23,7 +23,7 @@
     when: ansible_os_family == "Debian"
   - name: installing php on RedHat
     yum:
-      name: php
+      name: php72
       state: present
       update_cache: yes 
     when: ansible_os_family == "RedHat"
