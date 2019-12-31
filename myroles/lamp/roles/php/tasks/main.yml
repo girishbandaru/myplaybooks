@@ -8,7 +8,7 @@
     with_items: ["git","mcrypt","nginx"]
   - name: installing php7
     apt:
-      name: php7.0
+      name: php7
       state: present
       update_cache: yes  
   - name: enable php5 mcrypt module
