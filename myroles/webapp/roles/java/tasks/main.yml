@@ -1,2 +1,18 @@
 ---
 # tasks file for java
+- name: Installing java on Ubuntu 
+  apt:
+    name: java7
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+- name: Installing java on RedHat
+  yum:
+    name: java
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "RedHat"
+
+  notify:
+    - restart java_ubuntu
+    - restart java 

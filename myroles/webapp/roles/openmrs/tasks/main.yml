@@ -1,2 +1,30 @@
 ---
 # tasks file for openmrs
+
+# 1. installing maven
+- name: installing maven on Ubuntu
+  apt:
+    name: maven
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+- name: installing maven on Redhat
+  yum:
+    name: apache-maven
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "RedHat"
+
+# Downloading opeMRS from web
+- name: downloading and storing openmrs
+  get_url:
+    src: https://excellmedia.dl.sourceforge.net/project/openmrs/releases/OpenMRS_Reference_Application_2.9.0/referenceapplication-standalone-2.9.0.zip
+    dest: /home/ansible/openMRS-2.9.0.zip
+
+# Unarcihving downloaded file 
+- name: unarchiving OpenMrs Zip file
+  unarchive:
+    src: /home/ansible/openMRS-2.9.0.zip
+    dest: /usr/local/bin
+
+

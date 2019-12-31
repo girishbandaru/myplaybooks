@@ -1,2 +1,10 @@
 ---
 # handlers file for java
+- name: restart java_ubuntu
+  service:
+    name: java7
+    state: restarted
+- name: restart java
+  servcice:
+    name: java
+    state: restarted

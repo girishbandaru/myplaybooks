@@ -1,2 +1,19 @@
 ---
 # tasks file for jenkins
+- name: Installing Jenkins on Ubuntu
+  apt:
+    name: jenkins
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+- name: Installing Jenkins on RedHat
+  yum:
+    name: jenkins
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "RedHat"
+
+  notify:
+    - restart jenkins
+    
+  

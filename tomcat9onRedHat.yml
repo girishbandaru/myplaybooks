@@ -4,6 +4,6 @@
   become: yes
   tasks:
     - yum:
-        name: tomcat9
+        name: tomcat
         state: present
         update_cache: yes
