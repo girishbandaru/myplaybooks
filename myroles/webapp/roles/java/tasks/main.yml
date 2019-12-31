@@ -4,18 +4,26 @@
   apt:
     name: default-jre
     state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
 - name: installing default-jdk
   apt:
     name: default-jdk
     state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
 - name: adding repository
   apt_repository:
     repo: ppa:webupd8team/java
     state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
 - name: installing oracle-java8
   apt:
     name: oracle-java8-installer
     state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
 - name: Installing java on RedHat
   yum:
     name: java
