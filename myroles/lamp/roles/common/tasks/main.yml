@@ -4,5 +4,5 @@
   command: apt update
   when: ansible_os_family == "Debian"
 - name: update packages on RedHat
-  command: yum update
+  command: yum update -y
   when: ansible_os_family == "RedHat"
