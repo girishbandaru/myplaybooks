@@ -9,12 +9,11 @@
     with_items: ["git","mcrypt","nginx"]
   - name: install packages on RedHat
     yum: 
-      name: "{{ item }}"
+      name: ["git","mcrypt","nginx","epel-release","yum-utils"]
       state: present
       update_cache: yes 
     when: ansible_os_family == "RedHat"
-    with_items: ["git","mcrypt","nginx","epel-release","yum-utils"]
-    
+       
   - name: installing php on Ubuntu
     apt:
       name: php
