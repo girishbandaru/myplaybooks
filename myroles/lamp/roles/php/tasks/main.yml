@@ -1,13 +1,29 @@
 ---
 # tasks file for php
-  - name: install packages
+  - name: install packages on Ubuntu
     apt: 
       name: "{{ item }}"
       state: present
       update_cache: yes 
+    when: ansible_os_family == "Debian"
     with_items: ["git","mcrypt","nginx"]
-  - name: installing php
+  - name: install packages on RedHat
+    yum: 
+      name: "{{ item }}"
+      state: present
+      update_cache: yes 
+    when: ansible_os_family == "RedHat"
+    with_items: ["git","mcrypt","nginx"]
+    
+  - name: installing php on Ubuntu
     apt:
       name: php
       state: present
-      update_cache: yes  
+      update_cache: yes 
+    when: ansible_os_family == 'Debian"' 
+  - name: installing php on RedHat
+    yum:
+      name: php
+      state: present
+      update_cache: yes 
+    when: ansible_os_family == 'RedHat"' 
