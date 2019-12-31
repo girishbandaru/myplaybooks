@@ -2,7 +2,7 @@
 # handlers file for java
 - name: restart java_ubuntu
   service:
-    name: java7
+    name: java
     state: restarted
 - name: restart java
   service:

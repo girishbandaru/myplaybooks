@@ -1,18 +1,24 @@
 ---
 # tasks file for java
-- name: Installing java on Ubuntu 
+- name: Installing default-jre
   apt:
-    name: java7
+    name: default-jre
     state: present
-    update_cache: yes
-  when: ansible_os_family == "Debian"
+- name: installing default-jdk
+  apt:
+    name: default-jdk
+    state: present
+- name: adding repository
+  apt_repository:
+    repo: ppa:webupd8team/java
+    state: present
+- name: installing oracle-java8
+  apt:
+    name: oracle-java8-installer
+    state: present
 - name: Installing java on RedHat
   yum:
     name: java
     state: present
     update_cache: yes
   when: ansible_os_family == "RedHat"
-
-  notify:
-    - restart java_ubuntu
-    - restart java 
