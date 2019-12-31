@@ -6,8 +6,8 @@
       state: present
       update_cache: yes 
     with_items: ["git","mcrypt","nginx"]
-  - name: installing php7
+  - name: installing php
     apt:
-      name: php7
+      name: php
       state: present
       update_cache: yes  
