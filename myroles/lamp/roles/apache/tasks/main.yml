@@ -4,9 +4,11 @@
   apt:
     name: apache2
     status: present
+    update_cache: yes
   when: ansible_os_family == "Debian"
 - name: Installing apache2 on RedHat
   yum:
     name: httpd
     status: present
+    update_cache: yes
   when: ansible_os_family == "RedHat"
