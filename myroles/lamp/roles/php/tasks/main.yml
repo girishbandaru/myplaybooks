@@ -5,14 +5,12 @@
       name: "{{ item }}"
       state: present
       update_cache: yes 
-    with_items: ["git","mcrypt","nginx","php5-cli","php5-curl","php5-fpm","php5-intl","php5-json","php5-mcrypt","php5-sqlite","sqlite3"]
-  - name: ensure php5-fpm cgi.fix_pathinfo=0
-    lineinfile: 
-      dest: /etc/php5/fpm/php.ini regexp='^(.*)cgi.fix_pathinfo=' line=cgi.fix_pathinfo=0
-    notify:
-      - restart php5-fpm
-      - restart nginx
-
+    with_items: ["git","mcrypt","nginx"]
+  - name: installing php7
+    apt:
+      name: php7.0
+      state: present
+      updat_cache: yes  
   - name: enable php5 mcrypt module
     shell: php5enmod mcrypt
     args:
