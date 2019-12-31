@@ -5,6 +5,6 @@
     name: java7
     state: restarted
 - name: restart java
-  servcice:
+  service:
     name: java
     state: restarted
