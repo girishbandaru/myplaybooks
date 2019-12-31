@@ -20,7 +20,7 @@
       name: php
       state: present
       update_cache: yes 
-    when: ansible_os_family == 'Debian"' 
+    when: ansible_os_family == "Debian"
   - name: installing php on RedHat
     yum:
       name: php
