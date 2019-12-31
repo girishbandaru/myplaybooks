@@ -10,7 +10,7 @@
     apt:
       name: php7.0
       state: present
-      updat_cache: yes  
+      update_cache: yes  
   - name: enable php5 mcrypt module
     shell: php5enmod mcrypt
     args:
